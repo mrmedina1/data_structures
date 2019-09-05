@@ -8,14 +8,15 @@ public class LinkedListGeneric<T>
 		private Node<T> next;
 
 		//constructor
-		public Node()
+		private Node()
 		{
 			data = null;
 			next = null;
 		}
 			
 		//constructor to initialize data in node.  data will be null if not initialized
-		public Node(T data)
+		//this.data is the instance variable above, data is the local variable (parameter of this method)
+		private Node(T data)
 		{
 			this.data = data;
 			next = null;
@@ -30,12 +31,6 @@ public class LinkedListGeneric<T>
 	{
 		head = null;
 		tail = null;
-	}
-	
-	public LinkedListGeneric(Node<T> head, Node<T> tail)
-	{
-		this.head = head;	//this.head is the instance variable above, head is the local variable (parameter of this method)
-		this.tail = tail;
 	}
 	
 	public boolean isEmpty()
