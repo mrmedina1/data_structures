@@ -30,4 +30,7 @@ public class BST {
 		return (root == null);
 	}
 	
+	public void insert(int data) {
+		
+	}
 }
