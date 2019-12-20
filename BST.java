@@ -170,7 +170,7 @@ public class BST {
 		return current;
 	}
 	
-	//returns largest of the left subtree
+	//returns largest of the left subtree to deleteRecurse method above
 	private int returnLargest(Node current) {
 		int largest = current.data;
 		
@@ -182,7 +182,42 @@ public class BST {
 		return largest;
 	}
 	
-	public void numOfNodes() {
-		System.out.println("The number of nodes in the BST is: " + numOfNodes);
+	//Height method calls heightRecurse method below and returns the height of the BST.
+	//The height is the longest path from the root to a leaf node.  A one node BST has a height of 0.
+	public int height() {
+		return heightRecurse(root);
+	}
+	
+	private int heightRecurse(Node current) {
+		//if current is null: BST is empty, or reached end of path after leaf
+		if (current == null)
+			return -1;
+		//else recur down the tree
+		else
+			return 1 + Math.max(heightRecurse(current.leftChild), heightRecurse(current.rightChild));
+	}
+	
+	//numOfLeaves method calls numOfLeavesRecurse method below and returns the number of leaves in the BST.
+	//A leaf if a node that has no children.
+	public int numOfLeaves() {
+		return numOfLeavesRecurse(root);
+	}
+	
+	private int numOfLeavesRecurse(Node current) {
+		//if current is null: BST is empty, or reached end of path after leaf
+		if (current == null)
+			return 0;
+		//if both children are null then leaf node has been reached
+		else if ((current.leftChild == null) && (current.rightChild == null))
+			return 1;
+		//else continue to recur down the tree
+		else 
+			return numOfLeavesRecurse(current.leftChild) + numOfLeavesRecurse(current.rightChild);
+		
+	}
+	
+	//returns total number of nodes in the BST.
+	public int numOfNodes() {
+		return numOfNodes;
 	}
 }
