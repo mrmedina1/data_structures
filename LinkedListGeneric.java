@@ -76,6 +76,11 @@ public class LinkedListGeneric<T>
 			System.out.println(head.data);
 	}
 	
+	public T getHead()
+	{
+		return head.data;
+	}
+	
 	public void insertTail(T data)
 	{
 		Node<T> newNode = new Node<T>(data);
@@ -120,6 +125,11 @@ public class LinkedListGeneric<T>
 			System.out.println("The list is empty, there is nothing to print.");
 		else
 			System.out.println(tail.data);
+	}
+	
+	public T getTail()
+	{
+		return tail.data;
 	}
 
 	public void destroy()
